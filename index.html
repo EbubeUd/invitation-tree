@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  
+  <head>
+    <title>Inviting Friends</title>
+  </head>
+  
+  <body>
+    Enter number of users one can invite <input type="number"id="nr_invites" ><br/>
+    Enter the depth of the invitation tree <input type="number" id="depth"><br/>
+      
+    <button id="inviteBtn">INVITE</button>
+    
+  <script>
+    const noOfUsers = document.getElementById("nr_invites")
+    const depth = document.getElementById("depth")
+    const inviteBtn = document.getElementById("inviteBtn")
+    let newUser = {};
+
+    function btnPressed(){
+      newUser.Id = 1;
+      let currentUser = newUser.Id;
+      console.log(`#${currentUser} created`);
+
+      for(let i = 1; i <= depth.value; i++){
+          console.log(`${i} is inviting...`);
+          for(let j = 1; j <= noOfUsers.value; j++){ 
+              currentUser ++;
+              console.log(`#${currentUser} created invited by ${i}`); 
+          }
+      }    
+    }
+    inviteBtn.addEventListener("click", btnPressed)
+  
+  </script>
+  </body>
+  
+</html>
